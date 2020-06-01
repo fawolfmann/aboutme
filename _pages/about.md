@@ -4,6 +4,9 @@ title: About Me
 permalink: /about/
 ---
 
+I'm a Computer Engineering passionate about new technologies, developing fasts MVP iterating with the client to achieve best results.
+Always in research of new tools and experiment with them.
+
 ## Job Experience
 ### Data visualization @Avec
 Deployed Power BI platform two visualize and create business metrics for car dealership company
