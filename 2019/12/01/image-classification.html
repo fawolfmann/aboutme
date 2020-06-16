@@ -1,0 +1,104 @@
+<h1 id="image-classification-of-wheat-plant-disease">Image classification of wheat plant disease</h1>
+<p>This was my final project to achieve the title of compute engineer. 
+In this blog i’ll explain how i did it and which tools i used.</p>
+
+<p>In this project i created my own image dataset to work with.
+Some of the code used is on <a href="https://github.com/fawolfmann/Tesis">github</a></p>
+
+<p>This project was created with the help of <a href="https://www.argentina.gob.ar/inta">INTA</a> Argentinian agriculture institute and received a scholarship of <a href="https://www.unc.edu.ar/ciencia-y-tecnolog%c3%ada/">SECyT</a> Argentinian University Technology and Science secretary.</p>
+
+<h2 id="the-problem">The problem</h2>
+<p>The problem we pose is the lose of grain on wheat harvest caused by leaf disease.</p>
+
+<p>In the next images we see the kind of leaf disease that are more common in the wheat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Healthy</th>
+      <th style="text-align: center">Mildew</th>
+      <th style="text-align: center">Leaf Spot</th>
+      <th style="text-align: center">Rust</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://fawolfmann.github.io/aboutme/images/tesis/problem1.png" alt="" /></td>
+      <td style="text-align: center"><img src="https://fawolfmann.github.io/aboutme/images/tesis/problem2.png" alt="" /></td>
+      <td style="text-align: center"><img src="https://fawolfmann.github.io/aboutme/images/tesis/problem3.png" alt="" /></td>
+      <td style="text-align: center"><img src="https://fawolfmann.github.io/aboutme/images/tesis/problem4.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see in the images they are slightly different, with the idea is to classify this images and define if a leaf have a disease.</p>
+
+<p>So now we have defined our problem next we will see wich technic we used</p>
+<h2 id="convolutions-neural-networks">Convolutions neural networks</h2>
+<p>For the image classification we will use CNN or Convolutions neural networks. 
+This is not a CNN course but will make a little intro.</p>
+
+<h4 id="cnn-architecture">CNN Architecture</h4>
+<p><img src="https://fawolfmann.github.io/aboutme/images/tesis/cnn_architecture.png" alt="" />
+Image from <a href="https://developers.google.com/machine-learning/practica/image-classification/convolutional-neural-networks">Google</a></p>
+
+<p>A CNN basically is made of 2 modules, the first is the convolutional module that is used to create a feature map of an image. It made convolution with the patterns it was trained, in the firsts layers it look for basics patters ass lines or circles but in the deep convolutions it look for more complex patterns as a leg or a face in the case of a CNN trained to classify people.</p>
+
+<p>The second module is the classification module, its a dense layer or fully connected layer that use the feature map as input and give a classification as an output, it trains the connection weights to classify.</p>
+
+<p>This is a very short intro if you want to get a deeper knowleadge of computer vision i recomnend this <a href="http://cs231n.stanford.edu/">Standford Course</a> contains the slides and syllabus and the YouTube <a href="https://www.youtube.com/watch?v=vT1JzLTH4G4">videos</a>.</p>
+
+<h2 id="creation-of-dataset">Creation of dataset</h2>
+<p>We create an image dataset crawling image from the web and taking photos in the field. After the images where validated and labeled we got:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Label</th>
+      <th style="text-align: center">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Healthy</td>
+      <td style="text-align: center">113</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Mildew</td>
+      <td style="text-align: center">102</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Leaf Spot</td>
+      <td style="text-align: center">122</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Rust</td>
+      <td style="text-align: center">159</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is a small amount of pictures to work with but we handle to generate a good solution</p>
+
+<h2 id="installation">Installation</h2>
+<p>To the training part i install everything on a server with a Titan X GPU</p>
+
+<p>I used docker with a Tensorflow 2.0 image and run everything on Jupyters notebooks. All the code was build with Keras.</p>
+
+<h2 id="training-of-models">Training of models</h2>
+<p>In the training steps i made 3 iteration to get the final results.</p>
+
+<h3 id="iteration-1">Iteration 1</h3>
+<p>Transfer learning of models trained with IMAGENET. 
+Data augmentation</p>
+
+<h3 id="iteration-2">Iteration 2</h3>
+<p>Re-train the models with PlantVillage dataset and after transfer learning with my own data set.</p>
+
+<h3 id="iteration-3">Iteration 3</h3>
+<p>Cut my dataset with UEA labeling tool and again transfer learning the network trained with PlantVillage.</p>
+
+<h2 id="android-app-implementation">Android app implementation</h2>
+<p>After we trained successfully a model we convert it with TensorflowLite and created an Android app to use this trained model and make predictions on the device.</p>
+
+<h2 id="conclusions">Conclusions</h2>
