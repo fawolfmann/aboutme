@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://fawolfmann.github.io/aboutme/2019/12/01/image-classification.html</loc>
+<loc>https://fawolfmann.github.io/aboutme/2019/12/01/Image-Classification.html</loc>
 <lastmod>2019-12-01T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://fawolfmann.github.io/aboutme/jupyter/2020/02/20/test.html</loc>
 <lastmod>2020-02-20T00:00:00-06:00</lastmod>
+</url>
+<url>
+<loc>https://fawolfmann.github.io/aboutme/2020/03/01/Smiles-Scrapper.html</loc>
+<lastmod>2020-03-01T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://fawolfmann.github.io/aboutme/about/</loc>
